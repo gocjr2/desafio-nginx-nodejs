@@ -16,7 +16,7 @@ const connection = mysql.createConnection(config.db);
 function listaNomeTemplate(rows) {
   let html = '<h1>Full Cycle Rocks!</h1>'
   html +='<p>- Lista de nomes cadastrada no banco de dados.</p>'
-  html += Object.keys(rows).map(key => '<li>' + rows[key].name + '</li>').join('')
+  html += Object.keys(rows).map(key => '<p>' + rows[key].name + '</p>').join('')
   return html;
 }
 
