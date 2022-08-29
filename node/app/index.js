@@ -14,10 +14,9 @@ const mysql = require('mysql');
 const connection = mysql.createConnection(config.db);
 
 function listaNomeTemplate(rows) {
-  let html = '<h1>Full Cycle Rocks!</h1><hr>'
-  html += '<ul>'
+  let html = '<h1>Full Cycle Rocks!</h1>'
+  html +='<p>- Lista de nomes cadastrada no banco de dados.</p>'
   html += Object.keys(rows).map(key => '<li>' + rows[key].name + '</li>').join('')
-  html += '</ul>'
   return html;
 }
 
@@ -36,5 +35,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(config.port, () => {
-  console.log('Rodando na porta: ' + config.port)
+  console.log(config.port)
 })
