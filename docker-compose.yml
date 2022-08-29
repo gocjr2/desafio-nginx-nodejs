@@ -3,7 +3,7 @@ services:
   db:
     image: mysql:5.7
     container_name: db
-    command: --innodb-use-native-aio=0 --explicit_defaults_for_timestamp=false
+    command: --innodb-use-native-aio=0
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
@@ -18,7 +18,7 @@ services:
       context: ./node
     container_name: node
     volumes:
-      - ./node/app:/home/node/app
+      - noderoot:/home/node/app
     depends_on:
       - db
     networks:
@@ -36,6 +36,9 @@ services:
       - node
     networks:
       - desafio
+
+volumes: 
+  noderoot:
 
 networks:
   desafio:
